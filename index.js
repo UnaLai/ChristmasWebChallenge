@@ -32,7 +32,11 @@ window.onload = function() {
         context.resume().then(() => {
         function play(music,chord) {
             music.forEach(item => {
-                setTimeout(() => { piano.play(item.key, item.interval, item.playtime / 1000) }, musictime);
+                setTimeout(() => {
+                  piano.play(item.key, item.interval, item.playtime / 1000);
+                  container.classList.add("beat");
+                  setTimeout(()=>{ container.classList.remove("beat")},300); }
+                  , musictime);
                 musictime += item.playtime;
             });
             chord.forEach(item => {
@@ -40,8 +44,6 @@ window.onload = function() {
                 item.forEach(single => {
                   piano.play(single.key, single.interval, single.playtime / 1000);
                 });
-                container.classList.add("beat");
-                setTimeout(()=>{ container.classList.remove("beat")},500);
               },chordtime);
                 chordtime += 6*speed;
             });
