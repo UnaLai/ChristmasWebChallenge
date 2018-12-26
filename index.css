@@ -28,7 +28,7 @@ button{
  padding: 20px;
  position: absolute;
  top: 50%;
- left: 25%;
+ left: 23%;
  transform: translateY(-50%);
 cursor: pointer;
 }
